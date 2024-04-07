@@ -1,5 +1,3 @@
-#pragma once
-
 #include <iostream>
 #include "Color.h"
 
@@ -33,8 +31,8 @@ protected:
 
 // Use the virtual stream operator of the shape. This way a single override of operator<<() for shape
 // correctly streams all subclasses
-inline std::ostream& operator<<(std::ostream& os, const Shape& shape)
+/*inline std::ostream& operator<<(std::ostream& os, const Shape& shape)
 {
 	shape.stream(os);
 	return os;
-}
+}*/
