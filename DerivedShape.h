@@ -18,7 +18,7 @@ public:
 
 	void stream(std::ostream& os) const override;
 
-	int meaningOfLife();
+	int meaningOfLife() override;
 
 	Color getColor() const override;
 

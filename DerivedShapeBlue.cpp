@@ -28,6 +28,7 @@ void Rectangle::stream(std::ostream& os) const
 }
 
 int Rectangle::meaningOfLife()
+
 {
     return 43;
 }
@@ -35,4 +36,15 @@ int Rectangle::meaningOfLife()
 Color Rectangle::getColor() const
 {
     return Color::Blue;
+}
+
+extern "C" Shape* create()
+{
+    std::stringstream ss;
+    return new Rectangle({1.5,1.2}, {2.2,2.3}, ss);
+}
+
+extern "C" void destroy(Shape* s)
+{
+    delete s;
 }

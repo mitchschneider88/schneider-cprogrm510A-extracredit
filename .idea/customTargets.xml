@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="01110e0e-5e03-4587-9566-898576f0f6ae" name="RuntimeLink" defaultType="MAKE">
+      <configuration id="84189257-ca76-48fe-af43-b422cbbad33c" name="RuntimeLink">
+        <build type="MAKE">
+          <make targetName="RuntimeLink" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>

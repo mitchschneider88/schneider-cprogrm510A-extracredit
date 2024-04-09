@@ -1,4 +1,4 @@
-#include "include/CppUnitLite/TestHarness.h"
+#include "TestHarness.h"
 #include "DerivedShape.h"
 
 TEST(LoadRed, RedDylib)

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Color.h"
+#include <memory>
+#include <sstream>
 
 class Shape
 {
@@ -25,6 +27,8 @@ public:
     
     virtual Color getColor() const = 0;
 
+    virtual int meaningOfLife() = 0;
+
 protected:
     Color _color{};
 };
@@ -36,3 +40,6 @@ protected:
 	shape.stream(os);
 	return os;
 }*/
+
+typedef Shape* create_s();
+typedef void destroy_s(Shape*);

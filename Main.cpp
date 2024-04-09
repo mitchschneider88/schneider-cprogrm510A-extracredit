@@ -1,6 +1,4 @@
-//#include "TestHarness.h"
 #include <iostream>
-#include <sstream>
 #include "TestHarness.h"
 
 int main()

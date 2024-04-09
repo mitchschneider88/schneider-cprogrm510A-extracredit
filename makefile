@@ -35,6 +35,13 @@ ${LINK_TARGET}: $(OBJ)
 %.o: %.cpp
 	$(CC) -c -o $@ $< $(INCLUDEFLAGS) $(LIBFLAGS) $(CXXFLAGS)
 
+RuntimeLink:
+	$(CC) -o RuntimeLink.o -c RuntimeLink.cpp $(INCLUDEFLAGS) $(CXXFLAGS)
+	$(CC) -o RuntimeLink.exe RuntimeLink.o $(INCLUDEFLAGS) $(CXXFLAGS)
+
 clean:
+	rm RuntimeLink.o
+	rm RuntimeLink.exe
 	rm ${LINK_TARGET}
 	rm $(OBJ)
+

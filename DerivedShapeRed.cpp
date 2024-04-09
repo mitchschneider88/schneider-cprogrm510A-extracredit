@@ -4,7 +4,7 @@ Rectangle::Rectangle(const Point& p1, const Point& p2, std::ostream& canvas)
 : _upperLeft(p1), _lowerRight(p2), _canvas(canvas) 
 {
     _color = Color::Red;
-};
+}
 
 const Point& Rectangle::getUpperLeft() const
 {
@@ -14,7 +14,7 @@ const Point& Rectangle::getUpperLeft() const
 const Point& Rectangle::getLowerRight() const
 {
     return _lowerRight;
-};
+}
 
 void Rectangle::draw() const
 {
@@ -32,7 +32,19 @@ int Rectangle::meaningOfLife()
     return 42;
 }
 
+
 Color Rectangle::getColor() const
 {
     return Color::Red;
+}
+
+extern "C" Shape* create()
+{
+    std::stringstream ss;
+    return new Rectangle({1.5,1.2}, {2.2,2.3}, ss);
+}
+
+extern "C" void destroy(Shape* s)
+{
+    delete s;
 }
