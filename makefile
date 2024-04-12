@@ -20,14 +20,19 @@ DerivedShapeBlue: DerivedShapeBlue.cpp Point.cpp
 	$(CC) -shared -o dependencies/blue/libDerivedShape.dylib DerivedShapeBlue.o PointBlue.o
 	rm DerivedShapeBlue.o PointBlue.o
 
+Shape: Shape.h
+	$(CC) -o Shape.o -c Shape.h $(INCLUDEFLAGS) $(CXXFLAGS)
+	@mkdir -p dependencies/shape
+	$(CC) -shared -o dependencies/shape/libShape.dylib Shape.o
+	rm Shape.o
+
 LINK_TARGET = LoadTimeLinkedLibraries.exe
 
 OBJ = CppUnitLite/Failure.o CppUnitLite/Test.o CppUnitLite/TestRegistry.o CppUnitLite/TestResult.o CppUnitLite/WFailure.o \
       Main.o Tests.o
       
-all: DerivedShapeRed DerivedShapeBlue ${LINK_TARGET}
+all: DerivedShapeRed DerivedShapeBlue Shape ${LINK_TARGET}
 	rm $(OBJ)
-	./$(LINK_TARGET)
 
 ${LINK_TARGET}: $(OBJ)
 	$(CC) -o $@ $^ $(INCLUDEFLAGS) $(LIBFLAGS) $(CXXFLAGS)
@@ -37,11 +42,12 @@ ${LINK_TARGET}: $(OBJ)
 
 RuntimeLink:
 	$(CC) -o RuntimeLink.o -c RuntimeLink.cpp $(INCLUDEFLAGS) $(CXXFLAGS)
-	$(CC) -o RuntimeLink.exe RuntimeLink.o $(INCLUDEFLAGS) $(CXXFLAGS)
+	$(CC) -o RuntimeLinkedShapes.exe RuntimeLink.o $(INCLUDEFLAGS) $(CXXFLAGS)
+	rm RuntimeLink.o
 
 clean:
-	rm RuntimeLink.o
 	rm RuntimeLink.exe
 	rm ${LINK_TARGET}
 	rm $(OBJ)
+	rm RuntimeLink.o
 

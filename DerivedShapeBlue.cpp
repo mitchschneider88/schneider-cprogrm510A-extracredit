@@ -4,7 +4,7 @@ Rectangle::Rectangle(const Point& p1, const Point& p2, std::ostream& canvas)
 : _upperLeft(p1), _lowerRight(p2), _canvas(canvas) 
 {
     _color = Color::Blue;
-};
+}
 
 const Point& Rectangle::getUpperLeft() const
 {
@@ -14,7 +14,7 @@ const Point& Rectangle::getUpperLeft() const
 const Point& Rectangle::getLowerRight() const
 {
     return _lowerRight;
-};
+}
 
 void Rectangle::draw() const
 {

@@ -24,30 +24,27 @@ int main()
 
         else
         {
-            //auto meaningOfLife = reinterpret_cast<int (*)()>(dlsym(handle, "meaningOfLife"));
-
             create_s* create_shape = (create_s*) dlsym(handle, "create");
             const char* dlsym_error = dlerror();
 
-            if (dlsym_error) {
+            if (dlsym_error)
+            {
                 std::cerr << "Cannot load symbol create: " << dlsym_error << '\n';
                 return 1;
             }
 
             destroy_s* destroy_shape = (destroy_s*) dlsym(handle, "destroy");
             dlsym_error = dlerror();
-            if (dlsym_error) {
+            if (dlsym_error)
+            {
                 std::cerr << "Cannot load symbol destroy: " << dlsym_error << '\n';
                 return 1;
             }
 
-            // create an instance of the class
             Shape* shape = create_shape();
 
-            // use the class
             std::cout << "The Meaning of Life is: " << shape->meaningOfLife() << '\n';
 
-            // destroy the class
             destroy_shape(shape);
         }
 
@@ -82,13 +79,10 @@ int main()
                 return 1;
             }
 
-            // create an instance of the class
             Shape* shape = create_shape();
 
-            // use the class
             std::cout << "The Meaning of Life is: " << shape->meaningOfLife() << '\n';
 
-            // destroy the class
             destroy_shape(shape);
         }
     }

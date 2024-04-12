@@ -32,7 +32,6 @@ int Rectangle::meaningOfLife()
     return 42;
 }
 
-
 Color Rectangle::getColor() const
 {
     return Color::Red;
